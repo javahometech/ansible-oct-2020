@@ -1,0 +1,6 @@
+---
+- hosts: all
+  tasks:
+    - name: task-1 in playbook one
+      debug:
+        msg:  "this is task one"

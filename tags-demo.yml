@@ -1,0 +1,18 @@
+---
+- hosts: all
+  tasks:
+    - name: install
+      debug:
+        msg: Install required pakcages
+      tags:
+        - install
+    - name: configure packages
+      debug:
+        msg: Make configuration chages
+      tags:
+        - config
+    - name: deploy applications
+      debug:
+        msg: deploy applications
+      tags:
+        - deploy

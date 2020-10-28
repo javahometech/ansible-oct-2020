@@ -1,0 +1,35 @@
+---
+- hosts: 172.31.17.228
+  become: True
+  vars_files:
+    - dev-vars.yml
+  tasks:
+    - name: Install apache server
+      yum:
+        name: httpd
+        state: present
+    - name: put html file on apache server
+      copy:
+        src: index.html
+        dest: /var/www/html/
+        mode: 0666
+      notify:
+        - reboot apache
+    - name: change apache port
+      lineinfile:
+        path: /etc/httpd/conf/httpd.conf
+        regexp: '^Listen '
+        insertafter: '^#Listen '
+        line: Listen "{{ apache_port }}"
+      notify:
+        - reboot apache
+    - name: start and enable apache
+      service:
+        name: httpd
+        state: started
+        enabled: True
+  handlers:
+    - name: reboot apache
+      service:
+        name: httpd
+        state: restarted

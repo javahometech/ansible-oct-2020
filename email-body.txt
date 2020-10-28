@@ -1,0 +1,5 @@
+Hi, John, this emai is from Java Home.
+
+   Hi --> 172.31.17.228
+   Hi --> 172.32.17.228
+   Hi --> 172.31.30.76

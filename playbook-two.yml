@@ -1,0 +1,9 @@
+---
+- hosts: all
+  tasks:
+    - name: task-1 in playbook two
+      debug:
+        msg:  "this is task in playbook two"
+
+- name: Include playbook one
+  import_playbook: playbook-one.yml

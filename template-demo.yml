@@ -1,0 +1,7 @@
+---
+- hosts: localhost
+  tasks:
+    - name: template demo
+      template: 
+        src: email-body.j2
+        dest: email-body.txt

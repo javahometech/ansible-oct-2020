@@ -1,0 +1,9 @@
+---
+- hosts: all
+  tasks:
+    - name: This is demo task
+      debug:
+        msg: This is demo task
+    - name: include other tasks
+      import_tasks: task-one.yml
+

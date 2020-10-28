@@ -1,0 +1,14 @@
+---
+- hosts: all
+  become: True
+  tasks:
+    - name: Instal package on linux machines
+      yum:
+        name: httpd
+        state: present
+      when: ansible_os_family == 'RedHat'
+    - name: Insgall packages on ubuntu machine
+      apt:
+        name: apache2
+        state: present
+      when: ansible_os_family == 'Debian'
